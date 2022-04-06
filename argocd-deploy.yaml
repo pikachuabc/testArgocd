@@ -10,7 +10,7 @@ metadata:
   name: gitlab-deployment
   namespace: argo-github
 spec:
-  replicas: 8
+  replicas: 4
   selector:
     matchLabels:
       app: nginx-pod
