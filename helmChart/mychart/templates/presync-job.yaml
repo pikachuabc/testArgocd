@@ -2,7 +2,7 @@ apiVersion: batch/v1
 kind: Job
 metadata:
   name: presync-jobs
-  namespace: stg-gateway
+  namespace: default
   generateName: presync-
   annotations:
     argocd.argoproj.io/hook: PreSync
