@@ -1,0 +1,22 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: presync-jobs
+  namespace: stg-gateway
+  generateName: presync-
+  annotations:
+    argocd.argoproj.io/hook: PreSync
+    argocd.argoproj.io/hook-delete-policy: BeforeHookCreation
+    argocd.argoproj.io/sync-wave: "1"
+spec:
+  template:
+    metadata:
+      name: presync-jobs
+    spec:
+      containers:
+      - name: presync-jobs
+        image: nginx
+        imagePullPolicy: Always
+        command: [ "echo","hello world"]
+      restartPolicy: Never
+  backoffLimit: 0
